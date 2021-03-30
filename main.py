@@ -245,10 +245,8 @@ def main(args):
                 
         return
     else:
-        # Else, just train
-        while current_step < params["train_steps"]:
-            # Else, don't stop and restart
-            estimator.train(input_fn=partial(input_fn, global_step=current_step, eval=False), max_steps=params["train_steps"])
+        # Else, just train, don't stop and restart
+        estimator.train(input_fn=partial(input_fn, global_step=current_step, eval=False), max_steps=params["train_steps"])
 
 
 if __name__ == "__main__":
